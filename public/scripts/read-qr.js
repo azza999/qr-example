@@ -28,7 +28,7 @@ const Reader = {
 		this.videoInterval = setInterval(_=>{
 			this.ctx.drawImage(this.video, 0, 0, this.video.width, this.video.height)
 
-			let result = jsqr(this.ctx.ImageData(), this.video.width, this.video.height)
+			let result = jsQR(this.ctx.ImageData(), this.video.width, this.video.height)
 
 			this.$status.innerHTML = result
 		},20)
