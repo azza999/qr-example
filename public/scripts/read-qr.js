@@ -27,13 +27,11 @@ const Reader = {
 	},
 
 	startVideo2cvs: function() {
-		
-		this.cvs.width = this.video.videoWidth
-		this.cvs.height = this.video.videoHeight
-
-		console.log(this.video.videoWidth)
 
 		this.videoInterval = setInterval(_=>{
+			this.cvs.width = this.video.videoWidth
+			this.cvs.height = this.video.videoHeight
+			
 			this.ctx.drawImage(this.video, 0, 0, this.video.videoWidth, this.video.videoHeight)
 
 			let result = jsQR(this.ctx.getImageData(0, 0, this.video.videoWidth, this.video.videoHeight), this.video.width, this.video.height)
