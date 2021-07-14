@@ -19,6 +19,9 @@ const Reader = {
 			this.stream = mediaStream
 			this.allowed = true
 		})
+		.catch( err => {
+			console.log(err)
+		})
 	}
 }
 
