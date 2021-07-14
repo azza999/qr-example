@@ -9,13 +9,14 @@ const Reader = {
 		await this.requestCamera()
 
 		if (this.allowed === true) {
-			this.video.src = this.stream
+			this.video.srcObject = this.stream
+			this.video.play()
 		} else {
 			
 		}
 	},
-	requestCamera: function() {
-		navigator.mediaDevices.getUserMedia({video: true})
+	requestCamera: async function() {
+		await navigator.mediaDevices.getUserMedia({video: true})
 		.then( mediaStream=>{
 			this.stream = mediaStream
 			this.allowed = true
