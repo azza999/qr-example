@@ -1,6 +1,7 @@
 const Reader = {
 	init: function() {
 		this.video = document.getElementById('video')
+		this.$status = document.getElementById('status')
 		this.stream = null
 		this.allowed = false
 	},
@@ -21,6 +22,7 @@ const Reader = {
 		})
 		.catch( err => {
 			console.log(err)
+			$status.innerHTML = 'cannot use video'
 		})
 	}
 }
