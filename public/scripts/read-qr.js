@@ -34,9 +34,9 @@ const Reader = {
 
 			this.ctx.drawImage(this.video, 0, 0, this.video.videoWidth, this.video.videoHeight)
 
-			let imageData = this.ctx.getImageData(0, 0, this.video.videoWidth, this.video.videoHeight).data
+			let imageData = this.ctx.getImageData(0, 0, this.video.videoWidth, this.video.videoHeight)
 
-			let result = jsQR(imageData, this.video.width, this.video.height)
+			let result = jsQR(imageData.data, imageData.width, imageData.height)
 
 			this.$status.innerHTML = result
 		},20)
