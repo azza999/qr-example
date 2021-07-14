@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('qr-example:server');
 var http = require('http');
+const fs = require('fs');
+const https = require('https');
 
 /**
  * Get port from environment and store in Express.
@@ -14,6 +16,16 @@ var http = require('http');
 
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
+
+try {
+  const sslOption = {
+    key: fs.readFileSync('./ssl/privkey.pem'),
+    cert: fs.readFileSync('./ssl/cert.pem')
+  }
+
+  http.createServer(app).listen
+
+} catch (err) { console.log('start with no SSL') }
 
 /**
  * Create HTTP server.
@@ -28,6 +40,8 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+https.createServer(sslOption, app).listen(443);
 
 /**
  * Normalize a port into a number, string, or false.
