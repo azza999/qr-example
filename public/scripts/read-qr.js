@@ -25,10 +25,14 @@ const Reader = {
 	},
 
 	startVideo2cvs: function() {
-		this.videoInterval = setInterval(_=>{
-			this.ctx.drawImage(this.video, 0, 0, this.video.width, this.video.height)
+		
+		this.cvs.width = this.video.videoWidth
+		this.cvs.height = this.video.videoHeight
 
-			let result = jsQR(this.ctx.getImageData(0, 0, this.video.width, this.video.height), this.video.width, this.video.height)
+		this.videoInterval = setInterval(_=>{
+			this.ctx.drawImage(this.video, 0, 0, this.video.videoWidth, this.video.videoHeight)
+
+			let result = jsQR(this.ctx.getImageData(0, 0, this.video.videoWidth, this.video.videoHeight), this.video.width, this.video.height)
 
 			this.$status.innerHTML = result
 		},20)
