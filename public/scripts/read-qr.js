@@ -38,7 +38,7 @@ const Reader = {
 
 			let result = jsQR(imageData.data, imageData.width, imageData.height)
 
-			this.$status.innerHTML = result
+			this.$status.innerHTML = result.data
 		},20)
 	},
 
