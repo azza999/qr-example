@@ -29,6 +29,8 @@ const Reader = {
 		this.cvs.width = this.video.videoWidth
 		this.cvs.height = this.video.videoHeight
 
+		console.log(this.video.videoWidth)
+
 		this.videoInterval = setInterval(_=>{
 			this.ctx.drawImage(this.video, 0, 0, this.video.videoWidth, this.video.videoHeight)
 
