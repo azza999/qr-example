@@ -17,13 +17,13 @@ const https = require('https');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
+var sslOption = {}
+
 try {
-  const sslOption = {
+  sslOption = {
     key: fs.readFileSync('./ssl/privkey.pem'),
     cert: fs.readFileSync('./ssl/cert.pem')
   }
-
-  http.createServer(app).listen
 
 } catch (err) { console.log('start with no SSL') }
 
