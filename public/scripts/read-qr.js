@@ -14,6 +14,8 @@ const Reader = {
 	active: async function () {
 		await this.requestCamera()
 
+		console.log(this.stream)
+
 		this.startVideo2cvs()
 
 		if (this.allowed === true) {
